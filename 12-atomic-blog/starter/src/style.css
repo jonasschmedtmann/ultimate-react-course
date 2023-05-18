@@ -1,0 +1,178 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+
+  color: #222;
+  line-height: 1.25;
+  background: #fff;
+  padding: 32px;
+}
+
+.fake-dark-mode {
+  filter: invert(100%);
+  transition: all 0.5s;
+}
+
+.btn-fake-dark-mode {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 16px;
+  line-height: 1;
+  font-size: 26px;
+  background-color: #ffe8cc;
+  border: none;
+}
+
+section {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+header {
+  margin-bottom: 32px;
+  font-weight: bold;
+
+  justify-content: space-between;
+  display: flex;
+}
+
+h1 {
+  font-size: 26px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+h1 span {
+  font-size: 140%;
+  line-height: 1;
+}
+
+h2 {
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: #333;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+header div {
+  display: flex;
+  gap: 32px;
+  align-items: center;
+}
+
+header button {
+  font-size: 14px;
+}
+
+form {
+  padding: 24px;
+  background-color: #fff4e6;
+  display: flex;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+main {
+  margin-bottom: 40px;
+}
+
+aside {
+  margin-bottom: 40px;
+  opacity: 75%;
+}
+
+input,
+textarea,
+button {
+  font-size: 16px;
+  padding: 8px 12px;
+  border: 1px solid #ffe8cc;
+  font-family: inherit;
+  color: inherit;
+}
+
+input {
+  width: 12rem;
+}
+
+*::placeholder {
+  color: #999;
+}
+
+*:focus {
+  outline: 2px solid #ffa94d;
+  border-radius: 2px;
+}
+
+textarea {
+  flex: 1;
+  height: 50px;
+}
+
+button {
+  border: 1px solid #ffa94d;
+  background-color: #ffa94d;
+  font-weight: 700;
+  padding: 9px 24px;
+  cursor: pointer;
+}
+
+h3 {
+  text-transform: capitalize;
+  margin-bottom: 16px;
+  color: #333;
+}
+
+main ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 32px;
+}
+
+main li {
+  border: 1px solid #ffe8cc;
+  padding: 16px 20px;
+}
+
+main li:hover {
+  background-color: #fff4e6;
+}
+
+aside ul {
+  font-size: 90%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+aside li {
+  border: 1px solid #ffe8cc;
+  padding: 4px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h2 + button {
+  margin-bottom: 24px;
+}
+
+aside li button {
+  padding: 4px 8px;
+  font-size: 14px;
+}
