@@ -22,15 +22,15 @@ There is also a the [updates-and-fixes](https://github.com/jonasschmedtmann/ulti
 
 **A:** Sure! Here you go:
 
-- [Pizza Menu](https://x.netlify.app) (Components, props, JSX)
-- [Travel List](https://x.netlify.app) (useState)
-- [Eat-n-split](https://x.netlify.app) (Practice project)
-- [usePopcorn](https://x.netlify.app) (useEffect, data fetching, custom hooks)
-- [Classy weather](https://x.netlify.app) (Class components)
-- [Quiz App](https://x.netlify.app) (useReducer)
-- [WorldWise](https://x.netlify.app) (React Router, context API, leaflet)
-- [Fast React Pizza](https://x.netlify.app) (React Router data loading, Redux, Redux Toolkit, thunks, Tailwind CSS)
-- [The Wild Oasis](https://the-wild-oasis.netlify.app) (React Query, Styled Components, React Hook Form, Supabase, compound component pattern, authentication, professional application planning and development)
+- [Pizza Menu](https://fast-react-pizza-menu.netlify.app/) (Components, props, JSX)
+- [Travel List](https://travel-list-jonas.netlify.app/) (useState and state management)
+- [Eat-n-split](https://eat-n-split.netlify.app/) (Practice project)
+- [usePopcorn](https://usepopcorn.netlify.app) (useEffect, data fetching, custom hooks)
+- [Classy weather](https://classy-weather.netlify.app/) (Class components)
+- [Quiz App](https://the-react-quiz.netlify.app/) (useReducer)
+- [WorldWise](https://worldwise-jonas.netlify.app/) (React Router, context API, memo, useMemo, useCallback)
+- [Fast React Pizza](https://fast-react-pizza.netlify.app/) (React Router data loading, Redux, Redux Toolkit, thunks, Tailwind CSS)
+- [The Wild Oasis](https://the-wild-oasis.netlify.app) (React Query, Styled Components, React Hook Form, Supabase, advanced compound component pattern, authentication, professional application planning and development)
 
 ### Q4: What about Next.js?
 
@@ -38,7 +38,7 @@ There is also a the [updates-and-fixes](https://github.com/jonasschmedtmann/ulti
 
 ### Q5: What VSCode theme are you using?
 
-**A:** I use [One Monokai](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai) in this course. For the icons, I'm using [Material Icon Theme](...).
+**A:** I use [One Monokai](https://marketplace.visualstudio.com/items?itemName=azemoh.one-monokai) in this course. For the icons, I'm using [Material Icon Theme](https://marketplace.visualstudio.com/items?itemName=PKief.material-icon-theme).
 
 ### Q6: Videos don't load, can you fix it?
 
