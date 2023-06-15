@@ -43,6 +43,15 @@ function FlashCards() {
   }
   return (
     <>
+      <h2
+        style={{
+          textAlign: "center",
+          padding: "1em 0",
+          textDecoration: "underline",
+        }}
+      >
+        Flash Cards
+      </h2>
       <div className="flashcards">
         {questions.map((question) => (
           <div
