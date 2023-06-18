@@ -1,0 +1,48 @@
+<!--Indica que estamos usando html5-->
+<!DOCTYPE html>
+<!--Definimos como lenguaje el español.-->
+<html lang="es">
+  <head>
+    <!--Para que se pueden leer caracteres especiales-->
+    <meta charset="UTF-8" />
+    <!--Etiqueta necesaria para trabajar con resposive design-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--Para agregar compatibilidad con internet explorer-->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <!--Titulo del documento-->
+    <title>Hello world from react</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+    <script>
+      function App() {
+        // const time = new Date().toLocaleTimeString();
+        const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+
+        React.useEffect(() => {
+          const interval = setInterval(() => {
+            setTime(new Date().toLocaleTimeString());
+          }, 1000);
+        }, []);
+
+        return React.createElement(
+          'header',
+          null,
+          React.createElement('h1', null, `Hello world from react ${time}`)
+        );
+      }
+      const root = ReactDOM.createRoot(document.getElementById('root'));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>
