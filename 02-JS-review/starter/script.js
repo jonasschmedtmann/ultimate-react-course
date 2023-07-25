@@ -142,3 +142,120 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// //Destructuring
+
+// const book = getBook(1);
+// book;
+// const { title, author, pages, publicationDate, genres, hasMovieAdaptation } =
+//   book;
+// // console.log(title, author, genres);
+
+// const [primary, secondary, ...others] = genres;
+
+// // console.log(primary, secondary, others);
+// const newGenres = [...genres, "B-Horror"];
+// // console.log(newGenres);
+
+// const updatedBook = {
+//   ...book,
+//   MoviePublicationDate: "2001-12-19",
+//   pages: 1210,
+// };
+// updatedBook;
+
+// const summary = `${title} by ${author} has ${pages + 500} pages, published in ${
+//   publicationDate.split("-")[0]
+// }`;
+// summary;
+
+// // Ternary operator
+
+// const pagesRange = pages > 1000 ? "Over 1000" : "Less than 1000";
+// pagesRange;
+
+// // Arrow function
+// const getYear = (str) => str.split("-")[0];
+// console.log(getYear(publicationDate));
+
+// // AND Operator - short circuit when the first value is false
+// console.log(true && "Love");
+// //OR Operator - short circuit when the first value is true
+// console.log("love" || "yes");
+
+// // Optional Chainning
+
+// function getTotalReviewCount(book) {
+//   const goodreads = book.reviews?.goodreads?.reviewsCount ?? 0;
+//   const librarything = book.reviews?.librarything?.reviewsCount ?? 0;
+//   return goodreads + librarything;
+// }
+
+// console.log(getTotalReviewCount(book));
+
+// const books = getBooks();
+// // .map array method
+// const titleList = books.map((book) => book.title);
+// // console.log(titleList);
+// const essentialData = books.map((book) => ({
+//   title: book.title,
+//   author: book.author,
+// }));
+// // console.log(essentialData);
+
+// // .filter array method
+// // chaining two .filters
+// const longBooksWithMovie = books
+//   .filter((book) => book.pages > 400)
+//   .filter((book) => book.hasMovieAdaptation);
+// // console.log(longBooksWithMovie);
+// // chaining .map to .filter
+// const adventureBooks = books
+//   .filter((book) => book.genres.includes("adventure"))
+//   .map((book) => ({ title: book.title, pages: book.pages + 1 }));
+// // console.log(adventureBooks);
+
+// // .reduce array method
+// const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+// pagesAllBooks;
+
+// // .sort array method
+// const arr = [3, 7, 1, 9, 6];
+// const sorted = arr.slice().sort((a, b) => b - a);
+// // sorted;
+// // arr;
+// const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+// // sortedByPages;
+
+// // Adding, removing and updating elements of an array without mutating it
+
+// // 1. Add book object to array
+// const newBook = {
+//   id: 6,
+//   title: "Harry Potter and the Chamber of Secrets",
+//   author: "J.K. Rowling",
+// };
+
+// const booksAfterAdd = [...books, newBook];
+// // booksAfterAdd;
+
+// // 2. Delete book object from an array
+// const booksAfterDelete = booksAfterAdd.filter((book) => book.id !== 3);
+// // booksAfterDelete;
+
+// // 3. Update book object in the array
+// const booksAfterUpdate = books.map((book) =>
+//   book.id === 1 ? { ...book, author: "Demitry" } : book
+// );
+
+// booksAfterUpdate;
+
+// console.log(fetch("https://jsonplaceholder.typicode.com/todos"));
+
+// async function getTodos() {
+//   const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+//   const data = await res.json();
+//   console.log(data);
+// }
+
+// getTodos();
