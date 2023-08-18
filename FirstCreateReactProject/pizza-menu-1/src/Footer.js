@@ -3,16 +3,19 @@ export default function Footer() {
   const openHour = 12;
   const closeHour = 22;
   const isOpen = hour >= openHour && hour <= closeHour;
-  console.log(isOpen);
 
-  // if (hour < openHour || hour > closeHour) {
-  //   alert("We are closed!");
-  // } else {
-  //   alert("we are open!");
-  // }
   return (
     <footer className="footer">
-      {new Date().toLocaleTimeString()} We're currently open!
+      <div className="order">
+        {isOpen ? (
+          <>
+            <p>We are open until 10PM. Come visit us or order online</p>
+            <button className="btn">Order</button>{" "}
+          </>
+        ) : (
+          <p>We are currently closed</p>
+        )}
+      </div>
     </footer>
   );
 }
