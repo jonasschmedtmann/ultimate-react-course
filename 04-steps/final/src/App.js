@@ -41,6 +41,7 @@ function Steps() {
 
     // BAD PRACTICE
     // test.name = "Fred";
+    // BEST PRACTICE
     // setTest({ name: "Fred" });
   }
 
