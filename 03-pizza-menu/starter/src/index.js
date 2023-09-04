@@ -1,3 +1,6 @@
+import React from "react";
+import ReactDOM from "react-dom/client";
+
 const pizzaData = [
   {
     name: "Focaccia",
@@ -42,3 +45,36 @@ const pizzaData = [
     soldOut: false,
   },
 ];
+
+function App() {
+  return (
+    <div>
+      <h1>Hello React</h1>
+      <Pizza />
+      <Pizza />
+      <Pizza />
+    </div>
+  );
+}
+
+function Pizza() {
+  return (
+    <div>
+      <img src="pizzas/margherita.jpg" alt="pizza spinaci"></img>
+      <h2>Pizza Spinaci</h2>
+      <p>Tomato, mozarella, spinach, and ricotta cheese</p>
+    </div>
+  );
+}
+
+// React v18
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);
+
+// React before v18
+// React.render(<App />);
