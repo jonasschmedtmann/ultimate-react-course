@@ -107,9 +107,6 @@ function Menu() {
 }
 
 function Pizza({ pizzaObject }) {
-  //A conditional return for a sold out pizza
-  // if (pizzaObject.soldOut) return null;
-
   return (
     <li className={`pizza ${pizzaObject.soldOut ? "sold-out" : ""}`}>
       <img alt={pizzaObject.photoName} src={pizzaObject.photoName} />
