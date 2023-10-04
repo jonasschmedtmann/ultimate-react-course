@@ -1,16 +1,20 @@
-function OrderItem({ item, isLoadingIngredients, ingredients }) {
-  const { quantity, name, totalPrice } = item;
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
+import Home from "../../ui/Home"
+import Menu from "../../features/menu/Menu"
 
-  return (
-    <li>
-      <div>
-        <p>
-          <span>{quantity}&times;</span> {name}
-        </p>
-        <p>{formatCurrency(totalPrice)}</p>
-      </div>
-    </li>
-  );
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+  },
+  {
+    path: "/menu",
+    element: <Menu />,
+  },
+])
+
+function OrderItem({ item, isLoadingIngredients, ingredients }) {
+  return <RouterProvider router={router} />
 }
 
-export default OrderItem;
+export default OrderItem
