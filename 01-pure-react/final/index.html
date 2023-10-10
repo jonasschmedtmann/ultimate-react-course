@@ -8,19 +8,11 @@
   </head>
   <body>
     <div id="root"></div>
-
-    <script
-      src="https://unpkg.com/react@18/umd/react.development.js"
-      crossorigin
-    ></script>
-    <script
-      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
-      crossorigin
-    ></script>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
     <script>
       function App() {
-        // const time = new Date().toLocaleTimeString();
         const [time, setTime] = React.useState(new Date().toLocaleTimeString());
 
         React.useEffect(function () {
@@ -29,10 +21,9 @@
           }, 1000);
         }, []);
 
-        return React.createElement("header", null, `Hello React! It's ${time}`);
+        return React.createElement('header', null, `Hello King! It's ${time}`);
       }
-
-      const root = ReactDOM.createRoot(document.getElementById("root"));
+      const root = ReactDOM.createRoot(document.getElementById('root'));
       root.render(React.createElement(App));
     </script>
   </body>
