@@ -56,6 +56,14 @@ body {
   border-radius: 0.9rem;
   overflow: scroll;
   position: relative;
+  border: #dee2e6;
+  border-width: 10px;
+}
+.box::-webkit-scrollbar{
+  display: none;
+}
+.box ul::-webkit-scrollbar{
+  display: none;
 }
 
 .loader {
