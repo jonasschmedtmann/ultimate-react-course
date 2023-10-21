@@ -6,21 +6,21 @@ const tempMovieData = [
     Title: "Inception",
     Year: "2010",
     Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
   },
   {
     imdbID: "tt0133093",
     Title: "The Matrix",
     Year: "1999",
     Poster:
-      "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
+    "https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg",
   },
   {
     imdbID: "tt6751668",
     Title: "Parasite",
     Year: "2019",
     Poster:
-      "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
+    "https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg",
   },
 ];
 
@@ -30,7 +30,7 @@ const tempWatchedData = [
     Title: "Inception",
     Year: "2010",
     Poster:
-      "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
+    "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg",
     runtime: 148,
     imdbRating: 8.8,
     userRating: 10,
@@ -47,8 +47,10 @@ const tempWatchedData = [
   },
 ];
 
+const key = `18effc8a`;
+
 const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
 function Search({ query, setQuery }) {
   // const [query, setQuery] = useState("");
@@ -174,6 +176,19 @@ function WatchedMovie({ movie }) {
 }
 
 function MovieDetails({ selectedId, onCloseMovie }) {
+  const [movie, setMovie]= useState({})
+  useEffect(function(){
+    async function getMovieDetails(){
+      console.log(selectedId)
+      const res = await fetch(
+        `http://www.omdbapi.com/?i=${selectedId}&apikey=${key}`
+      );
+      console.log(`http://www.omdbapi.com/?i=${selectedId}&apikey=${key}`)
+      const data = await res.json();
+      setMovie(data)
+    }
+    getMovieDetails();
+  },[])
   return <div className="details">
     <button className="btn-back" onClick={()=> onCloseMovie()}>&larr;</button>
     {selectedId}
@@ -210,8 +225,6 @@ function Loader() {
 function ErrorMessage({ message }) {
   return <p className="error">{message}</p>;
 }
-const key = `18effc8a`;
-const tempQuery = "interstellar";
 
 
 export default function App() {
