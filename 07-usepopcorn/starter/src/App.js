@@ -167,7 +167,12 @@ function WatchedMovie({ movie, onDeleteWatched }) {
           <span>⏳</span>
           <span>{movie.runtime} min</span>
         </p>
-        <button className="btn-delete" onClick={()=>onDeleteWatched(movie.imdbID)}>X</button>
+        <button
+          className="btn-delete"
+          onClick={() => onDeleteWatched(movie.imdbID)}
+        >
+          X
+        </button>
       </div>
     </li>
   );
@@ -177,7 +182,6 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
   const [movie, setMovie] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [userRating, setUserRating] = useState("");
-  const [error, setError] = useState("");
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
@@ -199,6 +203,20 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
 
   useEffect(
     function () {
+      function callback(e) {
+        if (e.code === "Escape") {
+          onCloseMovie();
+        }
+      }
+      document.addEventListener("keydown", callback);
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie]
+  );
+  useEffect(
+    function () {
       async function getMovieDetails() {
         setIsLoading(true);
         const res = await fetch(
@@ -211,6 +229,18 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       getMovieDetails();
     },
     [selectedId]
+  );
+
+  useEffect(
+    function () {
+      if (!title) return;
+      document.title = `Movie | ${title}`;
+
+      return function () {
+        document.title = "usePopcorn";
+      };
+    },
+    [title]
   );
 
   function handleAdd() {
@@ -288,7 +318,11 @@ function WatchedMovieList({ watched, onDeleteWatched }) {
   return (
     <ul className="list">
       {watched.map((movie) => (
-        <WatchedMovie movie={movie} key={movie.imdbID} onDeleteWatched={onDeleteWatched} />
+        <WatchedMovie
+          movie={movie}
+          key={movie.imdbID}
+          onDeleteWatched={onDeleteWatched}
+        />
       ))}
     </ul>
   );
@@ -316,7 +350,7 @@ function ErrorMessage({ message }) {
 }
 
 export default function App() {
-  const [movies, setMovies] = useState(tempMovieData);
+  const [movies, setMovies] = useState([]);
   const [watched, setWatched] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
@@ -341,19 +375,24 @@ export default function App() {
 
   useEffect(
     function () {
+      const controller = new AbortController();
       async function fetchMovies() {
         try {
           setIsLoading(true);
           setError("");
           const res = await fetch(
-            `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s='${query}`
+            `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s='${query}`,
+            { signal: controller.signal }
           );
           if (!res.ok) throw new Error("Something when Wrong");
           const data = await res.json();
           if (data.Error) throw new Error(data.Error);
           setMovies(data.Search);
+          setError("");
         } catch (err) {
-          setError(err);
+          if (err.name !== "AbortError") {
+            setError(err);
+          }
         } finally {
           setIsLoading(false);
         }
@@ -364,7 +403,12 @@ export default function App() {
         handleCloseMovie();
         return;
       }
+      handleCloseMovie();
       fetchMovies();
+
+      return function () {
+        controller.abort();
+      };
     },
     [query]
   );
@@ -393,7 +437,10 @@ export default function App() {
           ) : (
             <>
               <WatchedSummary watched={watched} />
-              <WatchedMovieList watched={watched} onDeleteWatched={handleDeleteWatched}/>
+              <WatchedMovieList
+                watched={watched}
+                onDeleteWatched={handleDeleteWatched}
+              />
             </>
           )}
         </Box>
