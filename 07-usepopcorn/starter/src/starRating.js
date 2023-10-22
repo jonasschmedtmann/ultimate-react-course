@@ -14,6 +14,7 @@ export default function StarRating({
   maxRating = 5,
   color = "#fcc419",
   size = 48,
+  onSetRating,
 }) {
   const textStyle = {
     lineHeight: "1",
@@ -27,6 +28,7 @@ export default function StarRating({
 
   function handleRating(rating) {
     setRating(rating);
+    onSetRating(rating);
   }
   function handleTempRating(tempRating) {
     setTempRating(tempRating);
