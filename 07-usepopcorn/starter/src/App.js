@@ -28,7 +28,7 @@ export default function App() {
   // const [watched, setWatched] = useState([]);
   const [watched, setWatched] = useState(function () {
     const storedData = localStorage.getItem("watched");
-    return JSON.parse(storedData)
+    return JSON.parse(storedData);
   });
 
   function handleSelectMovie(id) {
@@ -48,50 +48,45 @@ export default function App() {
   }
 
   useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-    },
+    () => localStorage.setItem("watched", JSON.stringify(watched)),
     [watched]
   );
-  useEffect(
-    function () {
-      const controller = new AbortController();
-      async function fetchMovies() {
-        try {
-          setIsLoading(true);
-          setError("");
-          const res = await fetch(
-            `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s='${query}`,
-            { signal: controller.signal }
-          );
-          if (!res.ok) throw new Error("Something when Wrong");
-          const data = await res.json();
-          if (data.Error) throw new Error(data.Error);
-          setMovies(data.Search);
-          setError("");
-        } catch (err) {
-          if (err.name !== "AbortError") {
-            setError(err);
-          }
-        } finally {
-          setIsLoading(false);
-        }
-      }
-      if (query.length < 3) {
-        setMovies([]);
+  useEffect(() => {
+    const controller = new AbortController();
+    async function fetchMovies() {
+      try {
+        setIsLoading(true);
         setError("");
-        handleCloseMovie();
-        return;
+        const res = await fetch(
+          `http://www.omdbapi.com/?i=tt3896198&apikey=${key}&s='${query}`,
+          { signal: controller.signal }
+        );
+        if (!res.ok) throw new Error("Something when Wrong");
+        const data = await res.json();
+        if (data.Error) throw new Error(data.Error);
+        setMovies(data.Search);
+        setError("");
+      } catch (err) {
+        if (err.name !== "AbortError") {
+          setError(err);
+        }
+      } finally {
+        setIsLoading(false);
       }
+    }
+    if (query.length < 3) {
+      setMovies([]);
+      setError("");
       handleCloseMovie();
-      fetchMovies();
+      return;
+    }
+    handleCloseMovie();
+    fetchMovies();
 
-      return function () {
-        controller.abort();
-      };
-    },
-    [query]
-  );
+    return function () {
+      controller.abort();
+    };
+  }, [query]);
   return (
     <>
       <NavBar>
