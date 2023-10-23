@@ -1,7 +1,9 @@
 import { useEffect, useState, useRef } from "react";
 import StarRating from "./starRating";
-import { key } from "../App";
 import { Loader } from "./Loader";
+import { useKey } from "./useKey";
+
+export const key = `18effc8a`;
 
 export function MovieDetails({
   selectedId,
@@ -37,17 +39,8 @@ export function MovieDetails({
     if (userRating) countRef.current = countRef.current + 1;
   }, [userRating]);
 
-  useEffect(() => {
-    function callback(e) {
-      if (e.code === "Escape") {
-        onCloseMovie();
-      }
-    }
-    document.addEventListener("keydown", callback);
-    return () => {
-      document.removeEventListener("keydown", callback);
-    };
-  }, [onCloseMovie]);
+    useKey('Escape', onCloseMovie)
+  
   useEffect(() => {
     async function getMovieDetails() {
       setIsLoading(true);
