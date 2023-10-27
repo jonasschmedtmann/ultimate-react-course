@@ -10,7 +10,9 @@
   flex-direction: column;
   gap: 2rem;
 }
-
+.city::-webkit-scrollbar {
+  width: 0;
+}
 .row {
   display: flex;
   flex-direction: column;
