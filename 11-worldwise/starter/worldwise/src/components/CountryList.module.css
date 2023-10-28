@@ -10,3 +10,7 @@
   align-content: start;
   gap: 1.6rem;
 }
+
+.countryList::-webkit-scrollbar {
+  width: 0;
+}
