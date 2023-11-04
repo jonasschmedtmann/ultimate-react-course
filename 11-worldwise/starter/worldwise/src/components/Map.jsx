@@ -14,7 +14,6 @@ import { useGeolocation } from "../../hooks/useGeolocation";
 import Button from "./Button";
 
 function Map() {
-  const navigate = useNavigate();
   const { cities } = useCities();
   const [mapPosition, setMapPosition] = useState([40, 0]);
   const [searchParams] = useSearchParams();
@@ -37,7 +36,7 @@ function Map() {
   }, [geolocationPosition]);
 
   return (
-    <div className={styles.mapContainer} onClick={() => navigate("Form")}>
+    <div className={styles.mapContainer}>
       {!geolocationPosition && (
         <Button type="position" onClick={getPosition}>
           {isLoadingPosition ? "Loading..." : "Use your position"}
