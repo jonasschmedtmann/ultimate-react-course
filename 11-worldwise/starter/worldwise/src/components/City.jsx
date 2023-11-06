@@ -17,13 +17,10 @@ function City() {
   const { id } = useParams();
   const { getCity, currentCity, isLoading } = useCities();
   const { cityName, emoji, date, notes } = currentCity;
-  // const [searchParams] = useSearchParams();
-  // const lat = searchParams.get("lat");
-  // const lng = searchParams.get("lng");
 
   useEffect(() => {
     getCity(id);
-  }, [id]);
+  }, [id, getCity]);
 
   if (isLoading) {
     return <Spinner />;
