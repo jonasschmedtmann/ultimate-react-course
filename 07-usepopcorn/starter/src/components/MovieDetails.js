@@ -5,6 +5,13 @@ import { useKey } from "./useKey";
 
 export const key = `18effc8a`;
 
+async function url (selectedId){
+  return await fetch(
+    `http://www.omdbapi.com/?i=${selectedId}&apikey=${key}`
+  );
+}
+
+
 export function MovieDetails({
   selectedId,
   onCloseMovie,
@@ -44,9 +51,7 @@ export function MovieDetails({
   useEffect(() => {
     async function getMovieDetails() {
       setIsLoading(true);
-      const res = await fetch(
-        `http://www.omdbapi.com/?i=${selectedId}&apikey=${key}`
-      );
+      const res = url(selectedId)
       const data = await res.json();
       setMovie(data);
       setIsLoading(false);
