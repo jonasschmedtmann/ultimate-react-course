@@ -11,7 +11,7 @@ import FinishedScreen from "./FinishedScreen";
 import Footer from "./Footer";
 import Timer from "./Timer";
 
-const SEC_PER_QUESTION = 30
+const SEC_PER_QUESTION = 30;
 const initialState = {
   questions: [],
 
@@ -78,6 +78,9 @@ function reducer(state, action) {
   };
   return actionType[action.type](state, action);
 }
+async function url() {
+  return await fetch("http://localhost:8000/questions");
+}
 export default function App() {
   const [
     { questions, status, index, answer, points, highScore, secondsRemaining },
@@ -88,7 +91,7 @@ export default function App() {
   useEffect(() => {
     async function getQuestions() {
       try {
-        const res = await fetch("http://localhost:8000/questions");
+        const res = url();
         const data = await res.json();
         dispatch({ type: "dataReceived", payload: data });
       } catch (err) {
