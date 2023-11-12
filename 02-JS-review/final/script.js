@@ -295,9 +295,11 @@ booksAfterUpdate;
 //   .then((data) => console.log(data));
 
 // console.log("jonas");
-
+async function url (){
+return await fetch("https://jsonplaceholder.typicode.com/todos");
+}
 async function getTodos() {
-  const res = await fetch("https://jsonplaceholder.typicode.com/todos");
+  const res = await url();
   const data = await res.json();
   console.log(data);
 
