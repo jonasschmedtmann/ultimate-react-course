@@ -22,6 +22,8 @@ export default function App() {
   return (
     <div>
       <Tabbed content={content} />
+      <Tabbed content={content} />
+      <Tabbed content={content} />
     </div>
   );
 }
