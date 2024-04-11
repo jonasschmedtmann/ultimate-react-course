@@ -46,38 +46,43 @@ const pizzaData = [
 
 export function App() {
   return (
-    <>
+    <div className='container'>
     <Header/>
     <Menu/>
     <Footer/>
-    </>
+    </div>
   );
 }
 
 function Menu() {
   return (
-  <>
+  <main className="menu" >
+    <h2>Our Menu</h2>
   <Pizza/>
   <Pizza/>
   <Pizza/>
   <Pizza/>
-  </>)
+  <Pizza/>
+  <Pizza/>
+  <Pizza/>
+  <Pizza/>
+  </main>)
 }
 
 function  Pizza() {
   return (
-  <>
-      <h1>Peperoni pizza</h1>
+  <div className="pizza">
+      <h3>Peperoni pizza</h3>
       <img src="pizzas/salamino.jpg" alt="pizzaman"/>
-  </>
+  </div>
   )
 }
 
 function Header() {
   return (
-  <>
-  <p>Pizza and company</p>
-  </>
+  <header className="header">
+  <h1>Pizza and company</h1>
+  </header>
   )
 }
 function Footer() {
