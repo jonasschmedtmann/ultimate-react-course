@@ -42,3 +42,45 @@ const pizzaData = [
     soldOut: false,
   },
 ];
+
+
+export function App() {
+  return (
+    <>
+    <Header/>
+    <Menu/>
+    <Footer/>
+    </>
+  );
+}
+
+function Menu() {
+  return (
+  <>
+  <Pizza/>
+  <Pizza/>
+  <Pizza/>
+  <Pizza/>
+  </>)
+}
+
+function  Pizza() {
+  return (
+  <>
+      <h1>Peperoni pizza</h1>
+      <img src="pizzas/salamino.jpg" alt="pizzaman"/>
+  </>
+  )
+}
+
+function Header() {
+  return (
+  <>
+  <p>Pizza and company</p>
+  </>
+  )
+}
+function Footer() {
+  <>
+  </>
+}
