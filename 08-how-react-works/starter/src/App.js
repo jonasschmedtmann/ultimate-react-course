@@ -23,6 +23,7 @@ export default function App() {
     <div>
       <Tabbed content={content} />
       <Tabbed content={content} />
+      <Tabbed content={content} />
     </div>
   );
 }
