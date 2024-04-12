@@ -74,13 +74,15 @@ body {
 /* *************** */
 
 .menu {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   align-items: center;
+  justify-content: center;
   gap: 4rem;
+  justify-items: center;
 }
 
 .menu h2 {
+  align-self: center;
   display: inline-block;
   padding: 1rem 0;
   border-top: 2px solid currentColor;

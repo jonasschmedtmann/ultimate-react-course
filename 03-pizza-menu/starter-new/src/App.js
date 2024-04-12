@@ -43,6 +43,30 @@ const pizzaData = [
   },
 ];
 
+function Menu() {
+  return (
+  <main className="menu" >
+    <h2>Our Menu</h2>
+    <ul className='pizzas'>
+    {pizzaData.map((e)=>{
+      return <Pizza PizzaObj = {e} />
+    })}
+    </ul>
+  </main>)
+}
+
+function  Pizza(props) {
+  return (
+  <div className="pizza" >
+    <img src={props.PizzaObj.photoName}  />
+      <div>  
+      <h3>{props.PizzaObj.name}</h3>
+      <p>{props.PizzaObj.ingredients}</p>
+      <span>$ {props.PizzaObj.price}</span>
+      </div>
+  </div>
+  )
+}
 
 export function App() {
   return (
@@ -54,29 +78,9 @@ export function App() {
   );
 }
 
-function Menu() {
-  return (
-  <main className="menu" >
-    <h2>Our Menu</h2>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  <Pizza/>
-  </main>)
-}
 
-function  Pizza() {
-  return (
-  <div className="pizza">
-      <h3>Peperoni pizza</h3>
-      <img src="pizzas/salamino.jpg" alt="pizzaman"/>
-  </div>
-  )
-}
+
+
 
 function Header() {
   return (
@@ -85,7 +89,26 @@ function Header() {
   </header>
   )
 }
+
+// the footer is below lol
 function Footer() {
-  <>
-  </>
+  const openHours = 8
+  const closeHours = 18
+  let stmt = ''
+  const date = new Date().getHours()
+  const time =  ( openHours < date && date < closeHours )
+
+  return (
+    <Footer className='footer'>
+      {time && (
+        <div className="order">
+          <p>
+            We are open until {closeHours}:00 Come visit us or Order online
+          </p>
+          <button className="btn">Order</button>
+        </div>
+
+      )}
+    </Footer>
+  )
 }
