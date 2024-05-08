@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+const messages = [
+  "Learn React ⚛️",
+  "Apply for jobs 💼",
+  "Invest your new income 🤑",
+];
 
 function App() {
-  const [count, setCount] = useState(0)
+  const step = 1;
+
+  function handlePrevious(){
+    alert("Previous");
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="steps">
+      <div className="numbers">
+        <div className={`${step >= 1 ? "active" : ""}`}>1</div>
+        <div className={`${step >= 2 ? "active" : ""}`}>2</div>
+        <div className={`${step >= 3 ? "active" : ""}`}>3</div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
+
+      <p className="message">
+        Step {step}: {messages[step - 1]}
       </p>
-    </>
-  )
+
+      <div className="buttons">
+        <button
+          style={{ backgroundColor: "#7950f2", color: "white" }}
+          onClick={handlePrevious}
+        >
+          Previous
+        </button>
+        <button
+          style={{ backgroundColor: "#7950f2", color: "white" }}
+          onClick={() => alert("Next")}
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  );
 }
 
-export default App
+export default App;
