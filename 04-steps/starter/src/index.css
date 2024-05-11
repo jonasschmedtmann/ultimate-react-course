@@ -28,7 +28,7 @@ body {
   justify-content: space-between;
 }
 
-.numbers > div {
+.numbers>div {
   height: 40px;
   aspect-ratio: 1;
   background-color: #e7e7e7;
@@ -84,7 +84,7 @@ h3 {
 }
 
 .close {
-  position: absolute;
+  /* position: absolute; */
   top: 16px;
   right: 16px;
   border: none;
