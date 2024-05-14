@@ -7,23 +7,32 @@ const messages = [
 ];
 
 function App() {
+  return (
+    <div>
+      <Steps />
+      <Steps />
+    </div>
+  );
+}
+
+function Steps() {
   const [step, setStep] = useState(1);
   const [isOpen, setIsOpen] = useState(true);
 
   function handlePrevious() {
-    if (step > 1) setStep(step - 1);
+    if (step > 1) setStep((s) => s - 1);
   }
 
   function handleNext() {
-    if (step < 3) setStep(step + 1);
+    if (step < 3) setStep((s) => s + 1);
   }
 
   function close() {
-    setIsOpen(!isOpen); //!isOpen here does the opposite of the state isOpen; to make it open and close
+    setIsOpen((is) => !is); //isOpen here does the opposite of the state isOpen; to make it open and close
   }
 
   return (
-    <>
+    <div>
       <button className="close" onClick={close}>
         &times;
       </button>
@@ -55,7 +64,7 @@ function App() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
 
