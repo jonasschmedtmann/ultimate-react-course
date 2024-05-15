@@ -4,8 +4,6 @@ This branch of the repo contains starter files and final code for all sections a
 
 Use starter code to start each section, and **final code to compare it with your own code whenever something doesn't work**!
 
-There is also a the [updates-and-fixes](https://github.com/jonasschmedtmann/ultimate-react-course/tree/updates-and-fixes) branch which is kept up-to-date with **latest library updates and important bugfixes 🐛**
-
 🚨 **_Please read the following Frequently Asked Questions (FAQ) carefully before starting the course_** 🚨
 
 ## FAQ
@@ -31,7 +29,7 @@ There is also a the [updates-and-fixes](https://github.com/jonasschmedtmann/ulti
 - [WorldWise](https://worldwise-jonas.netlify.app/) (React Router, context API, memo, useMemo, useCallback)
 - [Fast React Pizza](https://fast-react-pizza.netlify.app/) (React Router data loading, Redux, Redux Toolkit, thunks, Tailwind CSS)
 - [The Wild Oasis](https://the-wild-oasis.vercel.app) (React Query, Styled Components, React Hook Form, Supabase, advanced compound component pattern, authentication, charts, dark mode, professional application planning and development)
-- [The Wild Oasis Website](https://the-wild-oasis-website.vercel.app/) (Next.js "app" router, React Server Components, server actions, authentication)
+- [The Wild Oasis Website](https://the-wild-oasis-website.vercel.app/) (Next.js "app" router, React Server Components, server actions, authentication with NextAuth)
 
 ### Q4: What VSCode theme are you using?
 
