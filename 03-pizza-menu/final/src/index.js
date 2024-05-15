@@ -70,6 +70,8 @@ function Header() {
 
 function Menu() {
   const pizzas = pizzaData;
+
+  const pizzaList = pizzaData.map((pizza) => <Pizza pizza={pizza} key={pizza.name} />);
   // const pizzas = [];
   const numPizzas = pizzas.length;
 
@@ -84,11 +86,7 @@ function Menu() {
             from our stone oven, all organic, all delicious.
           </p>
 
-          <ul className="pizzas">
-            {pizzas.map((pizza) => (
-              <Pizza pizzaObj={pizza} key={pizza.name} />
-            ))}
-          </ul>
+          <ul className="pizzas">{pizzaList}</ul>
         </>
       ) : (
         <p>We're still working on our menu. Please come back later :)</p>
