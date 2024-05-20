@@ -142,3 +142,64 @@ function getBooks() {
 function getBook(id) {
   return data.find((d) => d.id === id);
 }
+
+// // 1. Destructuring
+// const book = getBook(2);
+// const {
+//   title,
+//   author: theAuthor,
+//   pages,
+//   publicationDate,
+//   genres,
+//   hasMovieAdaptation,
+// } = book;
+// title;
+// theAuthor;
+// genres;
+// hasMovieAdaptation;
+// const [primary, secondary, , fourth, ...allOthers] = genres;
+// primary;
+// secondary;
+// fourth;
+// allOthers;
+
+// const newGenres = [...genres, "Epic Fantasy", "Absurdist"];
+// newGenres;
+
+// newBook = { ...book, moviePublicationDate: "02-05-2001", pages: 1210 };
+// console.log(newBook);
+
+const books = getBooks();
+const pagesAllBooks = books.reduce((acc, book) => acc + book.pages, 0);
+pagesAllBooks;
+const arr = [1, 2, 3, 4, 60, 20, 2, 100];
+const firstCheck = arr.indexOf(2);
+const lastCheck = arr.lastIndexOf(2);
+
+const reversedArr = arr.reverse();
+reversedArr;
+
+const sortedArr = arr.sort((a, b) => a - b);
+sortedArr;
+const sortedByPages = books.slice().sort((a, b) => b.pages - a.pages);
+sortedByPages;
+
+// Working with Immuntable arrays
+const newBook = {
+  id: 6,
+  title: "Cook Out",
+  author: "Hamburgers",
+  genres: ["comedy", "action", "opera"],
+  pages: 1111,
+};
+// 1. Add book item to array
+const withAddedBook = [...books, newBook];
+withAddedBook;
+// 2. Delete book item to array
+const withDeletedBook = books.filter((book) => book.id !== 2);
+withDeletedBook;
+// 3. Update book item in array
+const booksAfterUpdate = books.map((book) =>
+  book.id == 1 ? { ...book, pages: 1000 } : book
+);
+booksAfterUpdate;
