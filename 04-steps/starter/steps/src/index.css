@@ -1,11 +1,3 @@
-/* 
-const messages = [
-  "Learn React ⚛️",
-  "Apply for jobs 💼",
-  "Invest your new income 🤑",
-];
- */
-
 * {
   box-sizing: border-box;
 }
@@ -84,7 +76,7 @@ h3 {
 }
 
 .close {
-  position: absolute;
+  /* position: absolute; */
   top: 16px;
   right: 16px;
   border: none;
