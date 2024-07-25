@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "@babel/plugin-transform-nullish-coalescing-operator": "^7.24.7"
+  }
+}
