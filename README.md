@@ -66,3 +66,5 @@ Use starter code to start each section, and **final code to compare it with your
 ### Q12: Do you accept pull requests?
 
 **A:** No, because this repository should contain the _exact_ same code that is shown in the videos. _However, feel free to add an issue if you found one._
+
+Let's do this.
