@@ -68,15 +68,22 @@ function Header() {
 }
 
 function Menu() {
+	const pizzas = pizzaData;
+	const description = 'Authentic Italian pizza made with love';
 	return (
 		<main className='menu'>
 			<h2>Our Menu</h2>
-			<Pizza
-				name='Pizza Salamino'
-				ingredients='Tomato, mozarella, and pepperoni'
-				photoName='/pizzas/salamino.jpg'
-				price={15}
-			/>
+			<p>{description}</p>
+			<ul className='pizzas'>
+				{pizzas.map((pizza) => (
+					<>
+						<Pizza
+							pizza={pizza}
+							key={pizza.name}
+						/>
+					</>
+				))}
+			</ul>
 		</main>
 	);
 }
@@ -85,26 +92,35 @@ function Footer() {
 	const hour = new Date().getHours();
 	const openHour = 12;
 	const closeHour = 22;
-	const message =
-		hour > openHour && hour < closeHour
-			? 'We are currently open!'
-			: 'Sorry! We are currently closed';
-	return <footer className='footer'>{message}</footer>;
+	const isOpen = hour > openHour && hour < closeHour;
+	if (!isOpen) {
+		return (
+			<footer className='footer'>
+				<p>{'Sorry! We are currently closed'}</p>
+			</footer>
+		);
+	}
+	return (
+		<footer className='footer'>
+			<p>{'We are currently open!'}</p>
+		</footer>
+	);
 }
 
 function Pizza(props) {
+	const { name, ingredients, price, photoName, soldOut } = props.pizza;
 	return (
-		<div className='pizza'>
+		<li className={`pizza ${soldOut && 'sold-out'}`}>
 			<img
-				src={window.location.origin + props.photoName}
+				src={window.location.origin + photoName}
 				alt={window.location.origin + pizzaData[2].photoName}
 			></img>
 			<div>
-				<h3>{props.name}</h3>
-				<p>{props.ingredients}</p>
-				<span>{props.price + 3}</span>
+				<h3>{name}</h3>
+				<p>{ingredients}</p>
+				<span>{soldOut ? 'SOLD OUT !!!' : price * 30}</span>
 			</div>
-		</div>
+		</li>
 	);
 }
 //For react 18  and above
