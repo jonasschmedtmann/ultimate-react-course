@@ -11,11 +11,28 @@ function createRandomPost() {
 
 function App() {
   // Whenever `isFakeDark` changes, we toggle the `fake-dark-mode` class on the HTML element (see in "Elements" dev tool).
-  const [isFakeDark, setIsFakeDark] = useState(false);
+  const [isFakeDark, setIsFakeDark] = useState(()=>{
+    /*Checking Local Storage theme at mount for user prefences*/
+    const storedTheme = localStorage.getItem("theme");
+    if(storedTheme){
+      return storedTheme === "dark";
+    }
+
+    /*Return to system prefrence if user has not set any preference*/
+    return  window.matchMedia("(prefers-color-scheme: dark)").matches;
+  });
 
   useEffect(
     function () {
-      document.documentElement.classList.toggle("fake-dark-mode");
+      /*Add or remove the "fake-dark-mode" class on the root element based on the state*/
+      if(isFakeDark){
+         document.documentElement.classList.add("fake-dark-mode");
+        localStorage.setItem("theme","dark")
+      }else{
+         document.documentElement.classList.remove("fake-dark-mode");
+        localStorage.setItem("theme","light")
+      }
+
     },
     [isFakeDark]
   );
