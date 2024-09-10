@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import './App.css';
+import './styles.css';
 function App() {
 	return (
-		<div className='Container'>
+		<div className='App'>
 			<Counter />
 		</div>
 	);
@@ -12,7 +12,8 @@ export default App;
 
 function Counter() {
 	const [step, setStep] = useState(0);
-	const [count, setCount] = useState(0);
+	//const [count, setCount] = useState(0);
+
 	const today = new Date();
 	const handleNext = (setState) => {
 		setState((prevState) => prevState + 1);
@@ -20,9 +21,20 @@ function Counter() {
 	const handlePrev = (setState) => {
 		setState((prevState) => prevState - 1);
 	};
+
+	const handleChange = (e) => {
+		setStep(Number(e.target.value));
+	};
 	return (
 		<div>
 			<div>
+				<input
+					type='range'
+					min='0'
+					max='10'
+					value={step}
+					onChange={(e) => setStep(Number(e.target.value))}
+				/>
 				<div>
 					<button
 						onClick={() => {
@@ -31,7 +43,11 @@ function Counter() {
 					>
 						-
 					</button>
-					<span>Step: {step}</span>
+					<input
+						type='text'
+						value={step}
+						onChange={handleChange}
+					/>
 					<button
 						onClick={() => {
 							handleNext(setStep);
@@ -40,7 +56,7 @@ function Counter() {
 						+
 					</button>
 				</div>
-				<div>
+				{/* <div>
 					<button
 						onClick={() => {
 							handlePrev(setCount);
@@ -56,23 +72,24 @@ function Counter() {
 					>
 						+
 					</button>
-				</div>
+				</div> */}
 			</div>
 			<p>
-				{count > 0 && (
+				{step > 0 && (
 					<span>
-						{count} days after is{' '}
-						{new Date(today.setDate(today.getDate() + count)).toDateString()}
+						{step} days after is{' '}
+						{new Date(today.setDate(today.getDate() + step)).toDateString()}
 					</span>
 				)}
-				{count < 0 && (
+				{step < 0 && (
 					<span>
-						{count} days ago is{' '}
-						{new Date(today.setDate(today.getDate() + count)).toDateString()}
+						{step} days ago is{' '}
+						{new Date(today.setDate(today.getDate() + step)).toDateString()}
 					</span>
 				)}
-				{count === 0 && <span>Today is {today.toDateString()}</span>}
+				{step === 0 && <span>Today is {today.toDateString()}</span>}
 			</p>
+			<button onClick={() => setStep(0)}>Reset</button>
 		</div>
 	);
 }
