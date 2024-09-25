@@ -1,29 +1,29 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './index.css';
 
-// const tempMovieData = [
-// 	{
-// 		imdbID: 'tt1375666',
-// 		Title: 'Inception',
-// 		Year: '2010',
-// 		Poster:
-// 			'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg',
-// 	},
-// 	{
-// 		imdbID: 'tt0133093',
-// 		Title: 'The Matrix',
-// 		Year: '1999',
-// 		Poster:
-// 			'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
-// 	},
-// 	{
-// 		imdbID: 'tt6751668',
-// 		Title: 'Parasite',
-// 		Year: '2019',
-// 		Poster:
-// 			'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg',
-// 	},
-// ];
+const tempMovieData = [
+	{
+		imdbID: 'tt1375666',
+		Title: 'Inception',
+		Year: '2010',
+		Poster:
+			'https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_SX300.jpg',
+	},
+	{
+		imdbID: 'tt0133093',
+		Title: 'The Matrix',
+		Year: '1999',
+		Poster:
+			'https://m.media-amazon.com/images/M/MV5BNzQzOTk3OTAtNDQ0Zi00ZTVkLWI0MTEtMDllZjNkYzNjNTc4L2ltYWdlXkEyXkFqcGdeQXVyNjU0OTQ0OTY@._V1_SX300.jpg',
+	},
+	{
+		imdbID: 'tt6751668',
+		Title: 'Parasite',
+		Year: '2019',
+		Poster:
+			'https://m.media-amazon.com/images/M/MV5BYWZjMjk3ZTItODQ2ZC00NTY5LWE0ZDYtZTI3MjcwN2Q5NTVkXkEyXkFqcGdeQXVyODk4OTc3MTY@._V1_SX300.jpg',
+	},
+];
 
 const tempWatchedData = [
 	{
@@ -51,7 +51,8 @@ const tempWatchedData = [
 const average = (arr) =>
 	arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-function Search({ query, setQuery }) {
+function Search() {
+	const [query, setQuery] = useState('');
 	return (
 		<input
 			className='search'
@@ -176,60 +177,18 @@ function Box({ element }) {
 		</div>
 	);
 }
-const KEY = 'f84fc31d';
+
 export default function App() {
-	const [movies, setMovies] = useState();
+	const [movies, setMovies] = useState(tempMovieData);
 	const [watched, setWatched] = useState(tempWatchedData);
-	const [isLoading, setIsLoading] = useState(false);
-	const [hasError, setHasError] = useState(false);
-	const [query, setQuery] = useState('');
-
-	useEffect(() => {
-		async function fetchData() {
-			try {
-				setIsLoading(true);
-				setHasError(false);
-				const res = await fetch(
-					`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`
-				);
-				if (!res.ok) throw new Error('Network response was not ok');
-				const data = await res.json();
-
-				if (data.Response === 'False') throw new Error(data.Error);
-				console.log('data', data);
-				setMovies(data.Search);
-			} catch (error) {
-				setHasError(true);
-			} finally {
-				setIsLoading(false);
-			}
-		}
-		if (query.length < 3) {
-			setMovies([]);
-			setHasError(false);
-			return;
-		}
-		fetchData();
-	}, [query]);
 	return (
 		<>
 			<NavBar>
-				<Search
-					query={query}
-					setQuery={setQuery}
-				/>
-				<p className='num-results'>{movies?.length} </p>
+				<Search />
+				<p className='num-results'>{movies.length} </p>
 			</NavBar>
 			<Main>
-				<Box
-					element={
-						<>
-							{isLoading && !hasError && <Loader />}
-							{hasError && <ErrorMessage />}
-							{!isLoading && !hasError && <MovieList movies={movies} />}
-						</>
-					}
-				/>
+				<Box element={<MovieList movies={movies} />} />
 
 				<Box
 					element={
@@ -242,12 +201,4 @@ export default function App() {
 			</Main>
 		</>
 	);
-}
-
-function Loader() {
-	return <p className='loader'>Loading...</p>;
-}
-
-function ErrorMessage() {
-	return <p className='error'>Something went wrong</p>;
 }

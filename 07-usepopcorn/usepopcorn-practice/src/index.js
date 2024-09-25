@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-// import App from './App';
+import App from './App';
 import StarRating from './StarRating';
 
 function Test() {
@@ -22,8 +22,8 @@ function Test() {
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 	<React.StrictMode>
-		{/* <App /> */}
-		<StarRating
+		<App />
+		{/* <StarRating
 			maxRating={5}
 			messages={['Terrible', 'Bad', 'Okay', 'Good', 'Amazing']}
 		/>
@@ -33,7 +33,7 @@ root.render(
 			size={28}
 			className='test-star-rating'
 			defaultRating={3}
-		/>
+		/> */}
 		<Test />
 	</React.StrictMode>
 );
