@@ -304,7 +304,7 @@ async function getTodos() {
   return data;
 }
 
-const todos = getTodos();
+const todos = await getTodos();
 console.log(todos);
 
 console.log("jonas");
