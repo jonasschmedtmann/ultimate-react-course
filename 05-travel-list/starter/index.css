@@ -5,7 +5,7 @@ const initialItems = [
 ];
 */
 
-@import url("https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Monoton&family=Quicksand:wght@500;700&display=swap');
 
 * {
   margin: 0;
@@ -21,7 +21,7 @@ body {
   font-size: 2.4rem;
   font-family: sans-serif;
   color: #5a3e2b;
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-weight: 500;
 }
 
@@ -35,7 +35,7 @@ body {
 h1 {
   text-align: center;
   background-color: #f4a226;
-  font-family: "Monoton";
+  font-family: 'Monoton';
   font-size: 8rem;
   text-transform: uppercase;
   font-weight: 400;
@@ -101,7 +101,7 @@ input {
 .list ul {
   list-style: none;
   width: 80%;
-  overflow: scroll;
+  overflow: auto;
 
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -116,7 +116,7 @@ input {
   gap: 1.2rem;
 }
 
-input[type="checkbox"] {
+input[type='checkbox'] {
   height: 2rem;
   width: 2rem;
   accent-color: #e5771f;
