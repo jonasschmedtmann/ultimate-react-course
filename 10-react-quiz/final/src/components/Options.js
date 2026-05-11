@@ -2,7 +2,6 @@ import { useQuiz } from "../contexts/QuizContext";
 
 function Options({ question }) {
   const { dispatch, answer } = useQuiz();
-
   const hasAnswered = answer !== null;
 
   return (

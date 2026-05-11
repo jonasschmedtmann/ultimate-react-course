@@ -1,0 +1,60 @@
+.card {
+  border: 4px solid black;
+  width: 450 px;
+  padding: 10px;
+  margin: 40px;
+  border-radius: 4px;
+}
+.card::after {
+  content: "";
+  display: block;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.avatar {
+  width: 100%;
+  height: auto;
+  border: 3px solid black;
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 4px 8 px rgba(0, 0, 0, 0.3);
+  display: block;
+  margin: 20px auto;
+}
+.data {
+  padding: 32px;
+  padding: top 24px;
+}
+.heading {
+  font-size: 2.5 rem;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Arial", sans-serif;
+}
+.bio {
+  font-size: 1.2rem;
+  color: #555;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Georgia", serif;
+}
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-warp: wrap;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}

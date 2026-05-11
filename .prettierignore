@@ -1,0 +1,7 @@
+# Ignore README files so Prettier won't reformat them
+README.md
+readme.md
+**/README.md
+**/readme.md
+**/README.MD
+**/Readme.md

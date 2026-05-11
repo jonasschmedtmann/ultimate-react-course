@@ -1,5 +1,7 @@
 /* Taken from getting started guide at: https://leafletjs.com/examples/quick-start/ */
 @import "https://unpkg.com/leaflet@1.7.1/dist/leaflet.css";
+/* leaflet contains already created map library where we have components for map tiles, zoom buttons, popups, markersetc., */
+
 @import "https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700;800&display=swap";
 
 /* These CSS variables are global, so they are available in all CSS modules */
@@ -14,16 +16,18 @@
   --color-light--2: #ececec;
   --color-light--3: #d6dee0;
 }
-
+/* universal selector */
 * {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+  /* default styling to set the browser to default sapcing */
 }
 
 html {
   font-size: 62.5%;
   box-sizing: border-box;
+  /* to fix the box element to have their length as upto box and not including padding and border */
 }
 
 body {

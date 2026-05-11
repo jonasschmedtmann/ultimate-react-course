@@ -1,0 +1,72 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  color: #343a40;
+  line-height: 1;
+}
+
+.accordion {
+  width: 700px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.item {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 20px 24px;
+  padding-right: 48px;
+  cursor: pointer;
+  border-top: 4px solid #fff;
+  border-bottom: 4px solid #fff;
+
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  row-gap: 32px;
+  align-items: center;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: 500;
+  color: #ced4da;
+}
+
+.title,
+.icon {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.content-box {
+  grid-column: 2 / -1;
+  padding-bottom: 16px;
+  line-height: 1.6;
+}
+
+.content-box ul {
+  color: #868e96;
+  margin-left: 16px;
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* OPEN STATE */
+.open {
+  border-top: 4px solid #087f5b;
+}
+
+.open .number,
+.open .title {
+  color: #087f5b;
+}

@@ -1,0 +1,65 @@
+- all the event handlers will receive a event as a n object from the call back funtion alloted to the component.
+  once it receives. the evnt will be a SyntheticBase Event object
+- we use form tags in modern day html t create forms in frontend.
+some important tags used in forms include
+<form>
+<select>- to create a dropdown
+<option> to provide the options in the dropdown
+<input> to create a tab where we can write our input like a space to write stuff
+
+contrlled elements:
+
+- all the event objects are part of the dom and they only contain the value. which means dom only contains the value in here. but it is not good. hence we have the controlled elements.
+- if we use the controlled lemenets teh value of form data or any events data will be maintained in the dom and not in the dom
+
+steps in maintaining a controlled elements:
+
+1. create a state variable for the elements
+2. use the satte as teh value of the input field for which react has to control the valuse upon
+   using 'value' at the tag
+3. connect teh state with teh value that we want to connect there. so that the state will respond to teh change rather than being at the initial value used in the useState
+
+- props can allows flow od some variable form the aprent component to the child component only and not between sister components and not from child component to parent component
+
+74. state vs prop:
+
+- state : internal data. ie., data that is created inside the component function
+- props: external data. datat that is owned by the parent component. it is similar to functional parameters.
+- state can be maintained across the multiple rerenders. state can be updated by the component itself and it will be rerendered by react itself
+- props cannot be overwritten by the child components. receiving new props can also cause component to re-render. usually when the parents state has been updated.
+- so both the satte that holds teh component and the compoennt that receives teh state as a prop will also be rendered
+
+child to parent communication:
+
+- if two sibling components have to share some data or state then it needs to be taken from the sibling components and lifted up to the nearest parent component.
+- if we want to update teh value of teh state in the child components tehn use setState() to update teh state in the parent. so everything remains in sync
+
+deleteing an item: more into shild to parent communication
+
+84. derived state
+
+- a state that id computed from an existing state or prop
+  eg:
+  const [cart,setCart]=useSTate([
+  {name: "java", price:15},
+  {name:"python, price:20},
+  ])
+  const [numItems,setNumItems]=useState(2)
+  const [totalPrice,setTotalPrice]=useState(35)
+
+- here numItems depends on number of itms in the cart and the totalPrice depends on the price of all the items in the cart.
+
+- but it is redundant to update teh numItems and the totalPrice manually.
+
+- here we need not use useState hook for numItems and the totalprice normal variables is fnie and cart could be used as the prime source of truth for both.
+
+eg:
+const [cart,setCart]=useSTate([
+{name: "java", price:15},
+{name:"python, price:20},
+])
+var sum=0
+const numItems=cart.length;
+const totalPrice=cart.reduce((acc,item)=>acc+item.price,0)
+
+- ultimately each component will be in separate file . so once developement is fixed you can just

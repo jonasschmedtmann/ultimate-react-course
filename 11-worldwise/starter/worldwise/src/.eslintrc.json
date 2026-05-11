@@ -1,0 +1,4 @@
+// configures the behaviour of eslint which tells react rules what we have done
+{
+  "extends": "react-app"
+}

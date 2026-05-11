@@ -1,0 +1,65 @@
+{
+  "cities": [
+    {
+      "cityName": "Rosay-sur-Lieure",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-04-08T12:26:43.101Z",
+      "position": {
+        "lat": "49.36806633482156",
+        "lng": "1.40625"
+      },
+      "notes": "",
+      "id": "eVngCMKPnxo"
+    },
+    {
+      "cityName": "Alins",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-04-08T12:27:27.226Z",
+      "position": {
+        "lat": "42.56926437219384",
+        "lng": "1.3183593750000002"
+      },
+      "notes": "",
+      "id": "EoUWhLgv-NA"
+    },
+    {
+      "cityName": "La Puebla de Castro",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-04-08T12:36:21.422Z",
+      "position": {
+        "lat": "42.16340342422403",
+        "lng": "0.28564453125000006"
+      },
+      "notes": "",
+      "id": "eeuVCFuua6E"
+    },
+    {
+      "cityName": "Jouy-en-Pithiverais",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-04-08T12:36:43.392Z",
+      "position": {
+        "lat": "48.1367666796927",
+        "lng": "2.1093750000000004"
+      },
+      "notes": "",
+      "id": "CPoVgUF9Dwc"
+    },
+    {
+      "cityName": "Jouy-en-Pithiverais",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-04-08T12:36:43.392Z",
+      "position": {
+        "lat": "48.1367666796927",
+        "lng": "2.1093750000000004"
+      },
+      "notes": "",
+      "id": "JDWfuFO20Hw"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

@@ -10,5 +10,5 @@ root.render(
     <QuizProvider>
       <App />
     </QuizProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

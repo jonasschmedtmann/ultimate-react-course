@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>hello react!</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- including react manually rather than using a build tool-->
+    <script
+      crossorigin
+      src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.production.min.js"
+    ></script>
+    <!-- this is the core react component that deals with the dom component management-->
+    <script
+      crossorigin
+      src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.production.min.js"
+    ></script>
+    <!-- used for rendering react -->
+    <script>
+      function App() {
+        // const time = new date().toLocaleTimeString();
+        // creating a state
+        const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+
+        //using an effect to set up a timer to indicate what is teh state every second
+        React.useEffect(function () {
+          setInterval(function () {
+            setTime(new Date().toLocaleTimeString());
+          }, 1000);
+        }, []);
+        // app is a component in our react js . all components are started with a capital letter
+        return React.createElement(
+          "header",
+          null,
+          `Hello React! the time is ${time} `
+        ); //creating a header element inside our dom
+      }
+      //   after declaring a component lets render it
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(React.createElement(App));
+    </script>
+  </body>
+</html>
+<!-- pure react -->

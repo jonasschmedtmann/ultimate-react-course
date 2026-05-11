@@ -1,0 +1,77 @@
+{
+  "cities": [
+    {
+      "cityName": "Jouy-en-Pithiverais",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-04-08T12:36:43.392Z",
+      "position": {
+        "lat": "48.1367666796927",
+        "lng": "2.1093750000000004"
+      },
+      "notes": "",
+      "id": "CPoVgUF9Dwc"
+    },
+    {
+      "cityName": "La Ferte-Gaucher",
+      "country": "France",
+      "emoji": "🇫🇷",
+      "date": "2026-04-08T17:45:52.979Z",
+      "position": {
+        "lat": "48.777912755501845",
+        "lng": "3.3178710937500004"
+      },
+      "notes": "",
+      "id": "i2OlL0S3cKM"
+    },
+    {
+      "cityName": "Villers-la-Ville",
+      "country": "Belgium",
+      "emoji": "🇧🇪",
+      "date": "2026-04-08T17:46:01.762Z",
+      "position": {
+        "lat": "50.56928286558243",
+        "lng": "4.460449218750001"
+      },
+      "notes": "",
+      "id": "JwZ8yRNiuFE"
+    },
+    {
+      "cityName": "Utiel",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-04-09T06:55:06.259Z",
+      "position": {
+        "lat": "39.59722324495565",
+        "lng": "-1.2963867187500002"
+      },
+      "notes": "",
+      "id": "pBouNKmPDiU"
+    },
+    {
+      "cityName": "Jumilla",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-04-13T10:29:24.018Z",
+      "position": {
+        "lat": "38.496593518947584",
+        "lng": "-1.47216796875"
+      },
+      "notes": "",
+      "id": "D_AwZmwzXBg"
+    },
+    {
+      "cityName": "Villatobas",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2026-04-13T10:29:47.305Z",
+      "position": {
+        "lat": "39.842286020743394",
+        "lng": "-3.27392578125"
+      },
+      "notes": "",
+      "id": "t064BhcJdq4"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

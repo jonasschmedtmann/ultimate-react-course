@@ -1,0 +1,25 @@
+/* only classes works here in css modules */
+.nav {
+  /* accessible only in  this directory. and attaches a wierd string at the end of the class name*/
+  display: flex;
+  justify-content: space-between;
+  background-color: orangered;
+}
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+.nav :global(.active) {
+  /* adding the style to the active class element. note if global is not used then it will not reflec */
+  background-color: green;
+}
+:global(.test) {
+  /* global styling. it does nto attach any wierd string at the end of the class name */
+  background-color: red;
+}
+/* using element sleectors will not be working here */
+/* it will not create a  */
+/* ul{
+    list-style:none
+} */
